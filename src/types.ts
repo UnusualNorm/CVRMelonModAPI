@@ -4,10 +4,10 @@ export enum ModStatus {
   Retired = 3,
 }
 
+export type FileType = "Mod" | "Plugin";
+
 export interface DirectConfig {
   type: "direct";
-  name: string;
-  author: string;
   category: string;
   version: string;
   status: "Good" | "Broken" | "Retired";
@@ -17,19 +17,18 @@ export interface DirectConfig {
   source: string;
   file: string;
   fileLocation: "local" | "remote";
-  fileType: "mod" | "plugin";
+  fileType: FileType;
 }
 
 export interface GithubConfig {
   type: "github";
-  name: string;
   description: string;
   category: string;
   author: string;
   username: string;
   repo: string;
   file: string;
-  fileType: "mod" | "plugin";
+  fileType: FileType;
   status: "Good" | "Broken" | "Retired";
   versionOverride?: string;
 }
@@ -83,7 +82,7 @@ export interface Mod {
     description: string;
     // Good, Broken, or Retired
     approvalStatus: 1 | 2 | 3;
-    modType: "Mod" | "Plugin";
+    modType: FileType;
     fileName: string;
     modVersion: string;
     sourceLink: string;

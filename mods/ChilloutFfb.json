@@ -1,11 +1,10 @@
 {
   "type": "github",
-  "name": "ChilloutVR FFB for OpenGloves",
   "description": "An experimental mod for ChilloutVR to use OpenHands-Unity for FFB.",
   "category": "Utilities \u0026 Tweaks",
   "username": "TheUltiOne",
   "repo": "ChilloutFfb",
   "file": "ChilloutFfb.dll",
-  "fileType": "mod",
+  "fileType": "Mod",
   "status": "Broken"
 }

@@ -6,7 +6,6 @@
   "username": "ImTiara",
   "repo": "CVRMods",
   "file": "ImmersiveTouch.dll",
-  "fileType": "mod",
-  "status": "Good",
-  "versionOverride": "1.0.0"
+  "fileType": "Mod",
+  "status": "Good"
 }

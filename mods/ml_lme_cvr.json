@@ -1,0 +1,10 @@
+{
+  "type": "github",
+  "description": "This mod allows you to use your Leap Motion controller for hands and fingers visual tracking.",
+  "category": "Hardware Support",
+  "username": "SDraw",
+  "repo": "ml_mods_cvr",
+  "file": "ml_mods_cvr.dll",
+  "fileType": "Mod",
+  "status": "Good"
+}

@@ -1,0 +1,10 @@
+{
+  "type": "github",
+  "description": "Loads the OpenVR FSR Mod at Runtime without needing to replace any files.",
+  "category": "Performance \u0026 Fidelity",
+  "username": "LavaGang",
+  "repo": "ML_OpenVR_FSR",
+  "file": "ML_OpenVR_FSR.dll",
+  "fileType": "Mod",
+  "status": "Good"
+}

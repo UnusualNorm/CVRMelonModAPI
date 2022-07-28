@@ -71,20 +71,26 @@ for (let i = 0; i < modConfigPaths.length; i++) {
 
     case "github":
       (async () => {
-        const release = (
-          await octokit.repos.listReleases({
-            owner: config.username,
-            repo: config.repo,
-            headers: {
-              authorization: `token ${process.env.GITHUB_TOKEN}`,
-            },
-          })
-        ).data.find((release) => release.tag_name.match(semver));
+        const releases = await octokit.repos.listReleases({
+          owner: config.username,
+          repo: config.repo,
+          headers: {
+            authorization: `token ${process.env.GITHUB_TOKEN}`,
+          },
+        });
+        let release = releases.data.find((release) =>
+          release.tag_name.match(semver)
+        );
 
-        if (!release)
+        if (!release && !config.versionOverride)
           return console.warn(
             `Incompatible GitHub mod "${modConfigPath}" found in mods...`
           );
+        else if (!release && config.versionOverride)
+          release = {
+            ...releases.data[0],
+            tag_name: config.versionOverride,
+          };
 
         // TODO: Implement multiple version support
         const downloadLink = release.assets.find(

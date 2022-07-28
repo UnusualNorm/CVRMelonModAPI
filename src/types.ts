@@ -31,6 +31,7 @@ export interface GithubConfig {
   file: string;
   fileType: "mod" | "plugin";
   status: "Good" | "Broken" | "Retired";
+  versionOverride?: string;
 }
 
 export type Config = DirectConfig | GithubConfig;

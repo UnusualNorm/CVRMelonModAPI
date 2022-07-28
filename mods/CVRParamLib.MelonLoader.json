@@ -1,0 +1,12 @@
+{
+  "type": "github",
+  "name": "CVRParamLib.MelonLoader",
+  "description": "A Library for interacting with ChilloutVR's Animator Parameters",
+  "category": "Core Mods \u0026 Libraries",
+  "username": "200Tigersbloxed",
+  "repo": "CVRParamLib",
+  "file": "CVRParamLib.MelonLoader.dll",
+  "fileType": "mod",
+  "status": "Good",
+  "versionOverride": "1.0.0"
+}

@@ -9,7 +9,8 @@ export type FileType =
   | "Plugin"
   | "ZippedMod"
   | "ZippedPlugin"
-  | "Zipped";
+  | "Zipped"
+  | "UserLib";
 
 export interface DirectConfig {
   type: "direct";

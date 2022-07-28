@@ -1,0 +1,10 @@
+{
+  "type": "github",
+  "description": "A C# library made to interact with the force feedback of the OpenGloves driver.",
+  "category": "Core Mods \u0026 Libraries",
+  "username": "TheUltiOne",
+  "repo": "OpenGloves-Unity",
+  "file": "OpenGloves_Unity.dll",
+  "fileType": "UserLib",
+  "status": "Good"
+}

@@ -130,7 +130,11 @@ const updateMods = async () => {
           ).browser_download_url;
 
           const file = await cacheDll(downloadLink, config.file);
-          const versions = await ExtractModVersions(file);
+          const versions = await ExtractModVersions(file).catch(() => ({
+            Item1: config.repo,
+            Item2: config.username,
+            Item3: release.tag_name,
+          }));
 
           mod.versions.push({
             _version: 1,

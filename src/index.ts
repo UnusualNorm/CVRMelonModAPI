@@ -1,12 +1,12 @@
 import "dotenv/config";
 import fs from "fs";
 import path from "path";
-import edge from "edge-js";
 import { Server } from "http";
 import express from "express";
 import { Octokit } from "@octokit/rest";
-import { Config, Mod, ModStatus } from "./types";
+import child_process from "child_process";
 import { http, https } from "follow-redirects";
+import { Config, Mod, ModStatus } from "./types";
 
 const app = express();
 const port = process.env.PORT || 80;
@@ -21,19 +21,14 @@ const ExtractModVersions = (dllPath: string) => {
     Item2: string;
     Item3: string;
   }>((resolve, reject) =>
-    edge.func({
-      assemblyFile: path.join(
-        __dirname,
-        "../",
-        "VersionExtractor",
-        "VersionExtractor.dll"
-      ),
-      typeName: "VersionExtractor.VersionExtractor",
-      methodName: "ExtractModVersions",
-    })(dllPath, (err, result: string) => {
-      if (err) reject(err);
-      else resolve(JSON.parse(result));
-    })
+    child_process.execFile(
+      path.join(__dirname, "../", "MetaExtractor", "MetaExtractor"),
+      [dllPath],
+      (error, stdout, stderr) => {
+        if (error) reject(error);
+        else resolve(JSON.parse(stdout));
+      }
+    )
   );
 };
 

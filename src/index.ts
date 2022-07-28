@@ -23,8 +23,12 @@ const ExtractModVersions = (dllPath: string) => {
       path.join(__dirname, "../", "MetaExtractor", "MetaExtractor"),
       [dllPath],
       (error, stdout, stderr) => {
-        if (error) reject(error);
-        else resolve(JSON.parse(stdout));
+        try {
+          if (error) reject(error);
+          else resolve(JSON.parse(stdout));
+        } catch (err) {
+          reject(err);
+        }
       }
     )
   );

@@ -1,6 +1,7 @@
 import "dotenv/config";
 import fs from "fs";
 import path from "path";
+import cron from "node-cron";
 import { Server } from "http";
 import express from "express";
 import { Octokit } from "@octokit/rest";
@@ -67,7 +68,8 @@ if (!fs.existsSync(path.join(__dirname, "../", "cache")))
 
 const mods = new Array<Mod>();
 const modConfigPaths = fs.readdirSync(path.join(__dirname, "../", "mods"));
-(async () => {
+const updateMods = async () => {
+  mods.length = 0;
   for (let i = 0; i < modConfigPaths.length; i++) {
     try {
       const modConfigPath = modConfigPaths[i];
@@ -154,7 +156,10 @@ const modConfigPaths = fs.readdirSync(path.join(__dirname, "../", "mods"));
       console.log(err);
     }
   }
-})();
+};
+
+updateMods();
+cron.schedule("0 */6 * * *", updateMods);
 
 app.use(express.static("public"));
 app.get("/v1/mods", (req, res) => res.send(mods));

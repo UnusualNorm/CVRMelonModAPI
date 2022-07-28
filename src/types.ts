@@ -4,7 +4,12 @@ export enum ModStatus {
   Retired = 3,
 }
 
-export type FileType = "Mod" | "Plugin";
+export type FileType =
+  | "Mod"
+  | "Plugin"
+  | "ZippedMod"
+  | "ZippedPlugin"
+  | "Zipped";
 
 export interface DirectConfig {
   type: "direct";

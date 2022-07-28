@@ -10,11 +10,8 @@ import { http, https } from "follow-redirects";
 import { Config, Mod, ModStatus } from "./types";
 
 const app = express();
-const port = process.env.PORT || 80;
-const server = new Server(app);
+const port = process.env.PORT || 3000;
 const octokit = new Octokit();
-const semver =
-  /^((([0-9]+)\.([0-9]+)\.([0-9]+)(?:-([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?)(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?)$/;
 
 const ExtractModVersions = (dllPath: string) => {
   return new Promise<{
@@ -162,8 +159,9 @@ updateMods();
 cron.schedule("0 */6 * * *", updateMods);
 
 app.use(express.static("public"));
-app.get("/v1/mods", (req, res) => res.send(mods));
-
-app.listen(port, () => {
-  console.log(`Server listening on port #${port}!`);
+app.get("/v1/mods", (_, res) => {
+  console.log("Server received request for mods!");
+  res.send(mods);
 });
+
+app.listen(port, () => console.log(`Server listening on port #${port}!`));

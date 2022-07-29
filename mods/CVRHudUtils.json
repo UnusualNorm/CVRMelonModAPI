@@ -1,0 +1,10 @@
+{
+  "type": "github",
+  "description": "A simple little hud mod to remove the "skeletal input changed" popup, and adds some neat popup utilities for the time and spotify.",
+  "category": "UI mods",
+  "username": "swordsith",
+  "repo": "CVRHudUtils",
+  "file": "CVRHudUtils.dll",
+  "fileType": "Mod",
+  "status": "Good"
+}

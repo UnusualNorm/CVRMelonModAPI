@@ -107,7 +107,7 @@ const updateMods = async () => {
             description: config.description,
             downloadLink:
               config.fileLocation == "local"
-                ? `https://CoVRMelonModAPI.herokuapp.com/mods/${modConfigPath}/${config.file}`
+                ? `https://CoVRMelonModAPI.herokuapp.com/mods/${config.file}`
                 : config.source,
             sourceLink: config.source,
             changelog: config.changelog,
@@ -131,7 +131,14 @@ const updateMods = async () => {
           // TODO: Implement multiple version support
           const downloadLink = release.assets.find(
             (file) => file.name === config.file
-          ).browser_download_url;
+          )?.browser_download_url;
+
+          if (!downloadLink) {
+            console.warn(
+              `No download link found for github mod "${config.file}"...`
+            );
+            break;
+          }
 
           const file = await cacheDll(downloadLink, config.file);
           const versions = await ExtractModVersions(file).catch(() => ({
@@ -167,6 +174,8 @@ updateMods();
 cron.schedule("0 */6 * * *", updateMods);
 
 app.use(express.static("public"));
+app.use("/mods", express.static("cache"));
+
 app.get("/v1/mods", (_, res) => {
   console.log("Server received request for mods!");
   res.send(mods);

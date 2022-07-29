@@ -1,0 +1,10 @@
+{
+  "type": "github",
+  "description": "Lets you skip the intro at the beginning of the game. MelonLoader Only",
+  "category": "Utilities \u0026 Tweaks",
+  "username": "Falkitop",
+  "repo": "CVR-IntroSkipper",
+  "file": "IntroSkipper.dll",
+  "fileType": "Mod",
+  "status": "Good"
+}

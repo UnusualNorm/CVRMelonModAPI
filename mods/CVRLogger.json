@@ -1,0 +1,10 @@
+{
+  "type": "github",
+  "description": "This mod will allow you to see the game logs, aswell as the debug logs in the MelonLoader window.",
+  "category": "Core Mods \u0026 Libraries",
+  "username": "SticksDev",
+  "repo": "CVRLogger",
+  "file": "CVRLogger.dll",
+  "fileType": "Mod",
+  "status": "Good"
+}

@@ -1,0 +1,10 @@
+{
+  "type": "github",
+  "description": " A universal melonloader mod that automatically launches and closes specified external programs with the game.",
+  "category": "Utilities \u0026 Tweaks",
+  "username": "I5UCC",
+  "repo": "MelonAutoLaunch",
+  "file": "MelonAutoLaunch.dll",
+  "fileType": "Mod",
+  "status": "Good"
+}

@@ -1,0 +1,10 @@
+{
+  "type": "github",
+  "description": "Allows you to open user details panel on desktop. Useful till there's native implementation.",
+  "category": "Utilities \u0026 Tweaks",
+  "username": "Dreadrith",
+  "repo": "PlayerSelector",
+  "file": "PlayerSelector.dll",
+  "fileType": "Mod",
+  "status": "Good"
+}
